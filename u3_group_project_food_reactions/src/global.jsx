@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://swapi.dev/api/'
+export const BASE_URL = 'https://themealdb.com/api/json/v1/1/'
