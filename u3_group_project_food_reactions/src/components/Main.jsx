@@ -1,14 +1,15 @@
 import { Routes, Route } from 'react-router-dom'
-import SearchMeal from '../searchLists/SearchMeal'
+//components
+import Home from './Home'
+
 
 const Main = () => {
   return (
     <div>
       <Routes>
           <Route path="/" element={ <Home /> } />
-          <Route path="/listings" element={ <SearchMeal states={states} />} />
-          <Route path="/listings/:id" element={ <StateDetails states={states} />} />
-          <Route path="/countries" element={ <Listings states={states} />} />
+          {/* <Route path="/listings" element={ <Listings states={states} />} />
+          <Route path="/listings/:id" element={ <StateDetails states={states} />} /> */}
         </Routes>
     </div>
   )
