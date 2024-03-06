@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { BASE_URL } from './global';
+import { BASE_URL } from './global'
 import './App.css'
 
 //import components
@@ -10,12 +10,15 @@ import Main from './components/Main'
 
 function App() {
   
+  
+
+  
 
   return (
     <>
 
-     <Header />
-    
+      <Header />
+      <Main  />
 
     </>
   )
