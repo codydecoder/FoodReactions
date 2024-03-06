@@ -1,5 +1,11 @@
-export default function Recipe(){
-    return(
-        <h1>Recipe</h1>
+import { useEffect, useState } from "react"
+import { useParams, Link } from "react-router-dom"
+import axios from "axios"
+
+export default function Recipe() {
+
+    return recipe (
+        <div>
+        </div>
     )
 }
