@@ -4,23 +4,10 @@ import { useNavigate } from "react-router-dom"
 import { BASE_URL } from '../global'
 
 
-export default function SearchMeal(props){
+export default function SearchMeal(){
 
-    const [recipe, setRecipes] = useState([])
+    const [recipes, setRecipes] = useState([])
 
-    /*
-    const [selectedRecipe, setSelectedRecipe] = useState(null)
-
-    useEffect(() => {
-    const getRecipes = async () => {
-      const response = await axios.get(`${BASE_URL}search.php?s`)
-      console.log(response.data.meals[0])
-      setRecipes(response.data.meals)
-    }
-    getRecipes()
-
-    }, [])
-    */
 
     useEffect(() => {
         const getRecipes = async () => {
@@ -31,7 +18,13 @@ export default function SearchMeal(props){
         getRecipes()
     }, [])
 
-    if(!props.recipes) {
+    let navigate = useNavigate()
+
+    const showRecipe = (key) => {
+        navigate(`${key}`)
+    }
+
+    if(!recipes) {
         return <h1>LOADING...</h1>
 
     } else {
@@ -39,7 +32,7 @@ export default function SearchMeal(props){
         <div className="recipe-list-container">
         <ul className='recipes-list'>
             {
-                props.recipes.map((recipe) => (
+                recipes.map((recipe, key) => (
                     <li className="recipe-card" key={recipe.idMeal}>
                         <h3 className="card-labels">Name: <span className='card-details'>{recipe.strMeal}</span></h3>
                         <h3 className="card-labels">Area: <span className='card-details'>{recipe.strArea}</span></h3>
