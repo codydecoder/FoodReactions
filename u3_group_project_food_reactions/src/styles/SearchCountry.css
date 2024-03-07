@@ -8,20 +8,40 @@ div {
     display: flex;
   }
 
+  .area-card{
+    flex-direction: column;
+  }
   
+  .recipe-card {
+    border: 3px solid firebrick;
+    outline: 3px solid black;
+    border-radius: 10px;
+    background-color: gainsboro;
+    list-style-type: none;
+    margin: 5px;
+    margin-bottom: 25px;
+  }
 .area-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+/* Copied form cody */
+    border: 5px solid black;
+    padding: 5px; 
+    background-color: gray;
+    max-height: 750px;
+    overflow-y: scroll;
+/*   */
   }
   
   .area-card {
     padding: 1em;
-    width: 18em;
-    height: 15em;
+    width: 5em;
+    height: 3em;
     background-color: rgb(36, 47, 85);
+    /* background-color: rgba(67, 67, 75, 0.551); */
     border-radius: 0.5em;
-    margin: 1em;
+    margin: 0.1em;
     justify-content: space-around;
     box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.527);
     color: white;
@@ -31,11 +51,63 @@ div {
   
   .area-card:hover {
     transform: scale(1.01);
+    color: blue;
   }
   
   .area-card img {
     width: 100%;
+    height: 1.5em;
+    object-fit: center;
+    box-shadow: inset 0 0 1em rgb(0, 0, 0);
+  }
+
+  .area-grid-detail {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+/* Copied form cody */
+    border: 5px solid black;
+    padding: 5px; 
+    background-color: gray;
+    max-height: 750px;
+    overflow-y: scroll;
+    width: auto;
+/*   */
+  }
+  
+  .area-card-detail {
+    padding: 0.5em;
+    width: 15em;
+    height: 15em;
+    background-color: rgb(36, 47, 85);
+    /* background-color: rgba(67, 67, 75, 0.551); */
+    border-radius: 0.5em;
+    margin: 0.1em;
+    justify-content: space-around;
+    box-shadow: 0 0 0.25em rgba(0, 0, 0, 0.527);
+    color: white;
+    font-family: 'Georgia';
+    cursor: pointer;
+  }
+  .country-name{
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .area-card-detail img {
+    width: 100%;
     height: 10em;
     object-fit: center;
     box-shadow: inset 0 0 1em rgb(0, 0, 0);
+  }
+  .country-name{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+/* Copied form cody */
+    border: 5px solid black;
+    padding: 5px; 
+    background-color: rgb(199, 190, 190);
+    max-height: auto;
+    width: auto;
   }

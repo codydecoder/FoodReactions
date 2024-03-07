@@ -2,18 +2,24 @@ import { useEffect, useState } from "react"
 import axios from "axios"
 import { useNavigate } from "react-router-dom"
 import { BASE_URL } from '../global'
+import countryArray  from '../data/CountryCode'
 import '../styles/SearchCountry.css'
+
 
 
 export default function SearchCountry(){
     
     const [countries, setCountries] = useState([])
+    const [countryMeals, setCountryMeal] = useState([])
+    //let countryName = ''
+    const [countryName,setCountryName] = useState('')
+    const [countryCodes,setCountryCodes] = useState(countryArray)
 
 
     useEffect(() => {
         const getCountries = async () => {
             const responseCountries = await axios.get(`${BASE_URL}list.php?a=list`)
-            console.log(responseCountries.data.meals)
+            // console.log(responseCountries.data.meals)
             setCountries(responseCountries.data.meals)
         }
         getCountries()
@@ -21,8 +27,14 @@ export default function SearchCountry(){
 
     let navigate = useNavigate()
 
-    const showCountries = (key) => {
-        navigate(`${key}`)
+    const showCountries = async (country) => {
+        // navigate(`${country.strArea}`)
+        const responseListbyCountry = await axios.get(`${BASE_URL}filter.php?a=${country.strArea}`)
+        // console.log(responseListbyCountry.data.meals)
+        setCountryMeal(responseListbyCountry.data.meals)
+        setCountryName(country.strArea)
+        
+
     }
 
     if(!countries) {
@@ -32,16 +44,39 @@ export default function SearchCountry(){
     
     
     return(
+        <>
        <div className="area-grid">
-            {/* <h1>Search by country</h1> */}
             {
             countries.map((country,key) => (
-            <div className="area-card" key={country.strArea}>
-                <h3>{country.strArea}</h3>
+               
+            <div className="area-card" onClick={() => showCountries(country)} key={country.strArea}>
+                {countryCodes.map((code,key) => (
+                    // code.country_name === country.strArea ? <img src={`https://flagcdn.com/${code.country_code}.svg`} width="30" alt={country.strArea} /> : null
+                    code.country_name === country.strArea ? <img src={`https://www.themealdb.com/images/icons/flags/big/64/${code.country_code}.png`} width="30" alt={country.strArea} /> : null
+                    //https://www.themealdb.com/images/icons/flags/big/64/us.png
+                ))}
+                <h5>{country.strArea}</h5>
             </div>
             ))}
-       </div>
+        </div>
 
+            <div className="country-name"><h1>{countryName}</h1></div>
+            <div className="area-grid-detail">
+                
+                {   
+                    
+                    countryMeals.map((meals,key) => (
+                       <div className="area-card-detail" key={meals.idMeal}>
+                            
+                            <img src={meals.strMealThumb}></img>
+                            <h3>{meals.strMeal}</h3>
+                       </div>
+                    
+               ))}
+
+            </div>
+       {/* </div> */}
+       </>
     )
 }
 }
