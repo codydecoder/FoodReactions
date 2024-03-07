@@ -42,7 +42,6 @@ export default function SearchCountry(){
 
     } else {
     
-    
     return(
         <>
        <div className="area-grid">
@@ -52,7 +51,7 @@ export default function SearchCountry(){
             <div className="area-card" onClick={() => showCountries(country)} key={country.strArea}>
                 {countryCodes.map((code,key) => (
                     // code.country_name === country.strArea ? <img src={`https://flagcdn.com/${code.country_code}.svg`} width="30" alt={country.strArea} /> : null
-                    code.country_name === country.strArea ? <img src={`https://www.themealdb.com/images/icons/flags/big/64/${code.country_code}.png`} width="30" alt={country.strArea} /> : null
+                    code.country_name === country.strArea ? <img src={`https://www.themealdb.com/images/icons/flags/big/64/${code.country_code}.png`} width="30" alt={country.strArea}  /> : null
                     //https://www.themealdb.com/images/icons/flags/big/64/us.png
                 ))}
                 <h5>{country.strArea}</h5>
@@ -68,7 +67,7 @@ export default function SearchCountry(){
                     countryMeals.map((meals,key) => (
                        <div className="area-card-detail" key={meals.idMeal}>
                             
-                            <img src={meals.strMealThumb}></img>
+                            <img src={meals.strMealThumb} ></img>
                             <h3>{meals.strMeal}</h3>
                        </div>
                     

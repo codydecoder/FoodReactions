@@ -15,6 +15,7 @@ const Main = (props) => {
       <Routes>
           <Route path="/" element={ <Home /> } />
           <Route path="/recipes" element={<SearchMeal recipes={props.recipes}/>} />
+          <Route path="/recipes/:recipeName" element={<SearchMeal />} />
           {/* <Route path='/ingredients' element={<SearchIngredient recipes={props.recipes}/>}/> */}
           <Route path='/countries' element={<SearchCountry recipes={props.recipes}/>}/>
         </Routes>
