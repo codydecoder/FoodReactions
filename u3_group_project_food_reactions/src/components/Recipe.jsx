@@ -6,6 +6,7 @@ export default function Recipe() {
 
     return recipe (
         <div>
+            
         </div>
     )
 }

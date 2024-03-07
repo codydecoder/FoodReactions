@@ -26,6 +26,6 @@ export default [
     {country_name:'Tunisian',country_code:'tn'},
     {country_name:'Turkish',country_code:'tr'},
     {country_name:'Unknown',country_code:''},
-    {country_name:'Vietnamese',country_code:'vn'},
+    {country_name:'Vietnamese',country_code:'vn'}
    
 ]
